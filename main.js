@@ -1,10 +1,10 @@
 const CAT_YEAR_RATES = [15, 9, 4];
 const DOG_YEAR_RATES = [15, 9, 5];
 
-const calculatePetBirthdays = (birthDate, yearRates) => {
+const calculatePetBirthdays = (birthDate, yearRates, endYear) => {
   const birthdays = [];
   let petYear = 0;
-  const currentDate = new Date();
+  const currentDate = new Date(endYear, 11, 31);
   const startDate = new Date(birthDate);
 
   while (petYear < yearRates.length || startDate <= currentDate) {
@@ -29,19 +29,33 @@ const calculatePetBirthdays = (birthDate, yearRates) => {
 
 const displayBirthdays = (petName, petType, birthDate, year) => {
   const yearRates = petType === 'cat' ? CAT_YEAR_RATES : DOG_YEAR_RATES;
-  const birthdays = calculatePetBirthdays(birthDate, yearRates);
-  let result = `<h2>${petName}'s Birthdays in ${year}</h2><ul>`;
+  const birthdays = calculatePetBirthdays(birthDate, yearRates, year);
+  const heading = `<h2>${petName}'s Birthdays in ${year}</h2>`;
+  const noBirthdays = '<li>No upcoming birthdays this year.</li>';
+  const options = { day: '2-digit', month: 'long', year: 'numeric' };
+  const result = document.getElementById('result');
 
   if (birthdays.length === 0) {
-    result += `<li>No upcoming birthdays this year.</li>`;
-  } else {
-    birthdays.forEach(birthday => {
-      result += `<li>${birthday.toDateString()}</li>`;
-    });
+    result.innerHTML += `${heading} ${noBirthdays}`;
+    return;
   }
+  const currentDate = new Date();
+  const birthdaysLayout = birthdays
+    .filter(birthday => {
+      const birthdayYear = birthday.getFullYear();
+      return birthdayYear === year;
+    })
+    .map(birthday => {
+      const isBirthdayToday =
+        birthday.getDate() === currentDate.getDate() && birthday.getMonth() === currentDate.getMonth();
+      const formattedBirthday = new Intl.DateTimeFormat('en-AU', options).format(birthday);
+      return `<li>
+        ${isBirthdayToday ? `<strong>${formattedBirthday}</strong>` : formattedBirthday}
+      </li>`;
+    })
+    .join('');
 
-  result += `</ul>`;
-  document.getElementById('result').innerHTML += result;
+  result.innerHTML += `${heading} <ul>${birthdaysLayout}</ul>`;
 };
 
 const handleFormSubmit = event => {
@@ -62,11 +76,17 @@ const handleFormSubmit = event => {
 
 const addNextYearButton = (petName, petType, birthDate, nextYear) => {
   const button = document.createElement('button');
-  button.textContent = `Add Birthdays for ${nextYear}`;
-  button.className = 'add-year-btn';
-  button.addEventListener('click', () => {
+  button.className = 'add-year-btn button-82-pushable';
+  button.innerHTML = `
+    <span class="button-82-shadow"></span>
+    <span class="button-82-edge"></span>
+    <span class="button-82-front text">
+      Add Birthdays for ${nextYear}
+    </span>
+  `;
+  button.addEventListener('click', (e) => {
+    e.currentTarget.remove();
     displayBirthdays(petName, petType, birthDate, nextYear);
-    button.remove();
     addNextYearButton(petName, petType, birthDate, nextYear + 1);
   });
 
@@ -74,3 +94,7 @@ const addNextYearButton = (petName, petType, birthDate, nextYear) => {
 };
 
 document.querySelector('form').addEventListener('submit', handleFormSubmit);
+
+const button = document.querySelector('[type="submit"]');
+button.ontouchstart = () => button.classList.add('active');
+button.ontouchend = () => button.classList.remove('active');
