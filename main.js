@@ -76,11 +76,11 @@ const handleFormSubmit = event => {
 
 const addNextYearButton = (petName, petType, birthDate, nextYear) => {
   const button = document.createElement('button');
-  button.className = 'add-year-btn button-82-pushable';
+  button.className = 'add-year-btn button';
   button.innerHTML = `
-    <span class="button-82-shadow"></span>
-    <span class="button-82-edge"></span>
-    <span class="button-82-front text">
+    <span class="button-shadow"></span>
+    <span class="button-edge"></span>
+    <span class="button-front text">
       Add Birthdays for ${nextYear}
     </span>
   `;
