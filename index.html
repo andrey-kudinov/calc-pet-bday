@@ -10,7 +10,9 @@
   <body>
     <div class="container">
       <h1 class="title">Calculate Your Pet's Birthday</h1>
+    </div>
 
+    <div class="container container--narrow">
       <form action="/calculate" method="POST">
         <div class="form-group">
           <label for="pet-name">Pet Name:</label>
@@ -35,10 +37,16 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="submit-btn">Calculate</button>
+          <button class="submit-btn button-82-pushable" type="submit">
+            <span class="button-82-shadow"></span>
+            <span class="button-82-edge"></span>
+            <span class="button-82-front text">
+              Calculate
+            </span>
+          </button>
         </div>
       </form>
     </div>
-    <div class="container" id="result"></div>
+    <div class="container container--narrow" id="result"></div>
   </body>
 </html>
