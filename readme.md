@@ -51,7 +51,7 @@ This method is more straightforward as it reflects the typical aging process of 
 1. Select the type of pet (dog or cat).
 1. Click the "Calculate" button to see the upcoming birthdays and age conversions.
 
-## Do you like "Calc Pet Bday"? Please star ⭐ this repository!
+### Do you like "Calc Pet Bday"? Please star ⭐ this repository!
 
 Made by Andrey Kudinov with ❤️
 
