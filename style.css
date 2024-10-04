@@ -74,6 +74,10 @@ button {
   margin-bottom: 16px;
 }
 
+.image {
+  max-width: 100%;
+}
+
 .center {
   text-align: center;
 }
@@ -100,6 +104,15 @@ button {
 
 .mb-5 {
   margin-bottom: 20px;
+}
+
+.reset-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.text-justify {
+  text-align: justify;
 }
 
 .hidden {

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Find out how old your pet is in human years using our easy-to-use birthday calculator. Supports dogs and cats!"
+    />
+    <meta
+      name="keywords"
+      content="pet age calculator, dog age calculator, cat age calculator, calculate pet age, dog years to human years, cat years to human years, pet care"
+    />
+    <meta name="author" content="Andrey Kudinov" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Calculate Your Pet's Birthday" />
+    <meta
+      property="og:description"
+      content="Easily calculate your pet's age in human years using our pet age calculator. Accurate for both dogs and cats!"
+    />
+    <meta property="og:image" content="favicons/favicon.png" />
+    <meta property="og:url" content="https://calc-pet-bday.ru" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pet Age Calculator - Find Your Pet's Age in Human Years" />
+    <meta
+      name="twitter:description"
+      content="Easily calculate your pet's age in human years using our pet age calculator!"
+    />
+    <meta name="twitter:image" content="favicons/favicon.png" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
+    <link rel="manifest" href="favicons/site.webmanifest" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>How the Pet's Birthday Calculator Works</title>
+  </head>
+  <body>
+    <div class="container right">
+      <a class="link" href="/">Back to calculator</a>
+    </div>
+
+    <div class="container">
+      <h1 class="title">How the Pet's Birthday Calculator Works</h1>
+
+      <p class="text-justify">
+        Our pet birthday calculator allows you to input your pet's birth date and select the pet type (dog or cat). It
+        calculates your pet's age in human years and provides upcoming birthday information based on specific formulas
+        for each animal type.
+      </p>
+
+      <h2 id="dog-age-calculation"><a class="reset-link" href="#dog-age-calculation">Dog Age Calculation</a></h2>
+
+      <p class="text-justify">
+        For dogs, the age calculation is based on a logarithmic formula derived from scientific research:
+      </p>
+
+      <code>human_age = 16 ln(dog_age) + 31</code>
+
+      <p class="text-justify">
+        This approach reflects how dogs age faster than humans, especially in their early years. The formula gives a
+        more accurate estimation of a dog's age in human years, accounting for breed and size differences.
+      </p>
+
+      <img class="image" src="./F2.large.jpg" alt="Figure: A non-linear transformation from dog to human age." />
+
+      <p class="text-justify">
+        You can read more about this in the research paper:
+        <a href="https://www.biorxiv.org/content/10.1101/829192v1.full" target="_blank"
+          >Canine Age and Life Expectancy: A Novel Method to Estimate the Human Age of Dogs</a
+        >.
+      </p>
+
+      <p>To give a clearer picture, here are the aging rates for dogs.</p>
+
+      <p>Dog Aging Rates (years to human years):</p>
+
+      <code>[31, 11, 7, 4, 4, 3, 2, 2, 2, 2, 1, 2, 1, ...]</code>
+
+      <h2 id="cat-age-calculation"><a class="reset-link" href="#cat-age-calculation">Cat Age Calculation</a></h2>
+
+      <p class="text-justify">
+        For cats, the age conversion is more straightforward, based on commonly accepted age equivalents:
+      </p>
+
+      <ul>
+        <li>1 year = 15 cat years</li>
+        <li>2 years = 9 cat years</li>
+        <li>Each additional year = 4 cat years</li>
+      </ul>
+
+      <p class="text-justify">
+        This method is simpler because cats tend to have a more uniform aging process compared to dogs.
+      </p>
+
+      <p class="text-justify">To give a clearer picture, here are the aging rates for dogs.</p>
+
+      <p>Cat Aging Rates (years to human years):</p>
+
+      <code>[15, 9, 4, 4, 4, ...]</code>
+
+      <h2 id="usage"><a class="reset-link" href="#usage">Usage</a></h2>
+      <ol>
+        <li>Enter your pet's birth date.</li>
+        <li>Select the type of pet (dog or cat).</li>
+        <li>Click the "Calculate" button to see upcoming birthdays and age conversions.</li>
+      </ol>
+
+      <h2 id="contact"><a class="reset-link" href="#contact">Source Code and Contact Information</a></h2>
+      <p class="text-justify">
+        You can find the complete source code for this pet age calculator on my GitHub repository. The code is
+        open-source and available for anyone interested in exploring or contributing. If you'd like to see how the
+        calculations work or adapt them for your own projects, feel free to check it out.
+      </p>
+
+      <p>
+        Visit the repository on GitHub:
+        <a href="https://github.com/andrey-kudinov/calc-pet-bday" target="_blank">calc-pet-bday</a>.
+      </p>
+
+      <p class="text-justify">
+        If you have any questions, suggestions, or collaboration ideas, you can reach me directly via email at
+        <a href="mailto:2499931@gmail.com">2499931@gmail.com</a>. I'd love to hear your feedback!
+      </p>
+
+      <p>Best regards,<br />Andrey Kudinov</p>
+    </div>
+  </body>
+</html>
