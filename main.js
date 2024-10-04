@@ -99,8 +99,6 @@ const displayBirthdays = (petName, petType, birthDate, year, addToTop) => {
   } else {
     result.append(block);
   }
-
-  handleButtonAnimations();
 };
 
 const handleFormSubmit = event => {
@@ -202,6 +200,9 @@ const handleButtonAnimations = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   window.onload = loadFormDataFromUrl;
+
+  handleButtonAnimations();
+
   const form = document.querySelector('form');
   form.addEventListener('submit', handleFormSubmit);
 });
