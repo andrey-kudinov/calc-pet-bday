@@ -29,7 +29,7 @@ The application allows users to input their pet's birth date and type (dog or ca
 
 For dogs, the age calculation is based on a logarithmic formula derived from scientific research. The formula used is:
 
-Dog Years = 16⋅log(Human Years) + 31
+human_age = 16 ln(dog_age) + 31
 
 This approach reflects the faster aging process of dogs compared to humans, especially during their early years. The study suggests that the logarithmic relationship between dog years and human years provides a more accurate estimation of a dog's age in human terms, particularly for different breeds and sizes of dogs. 
 
