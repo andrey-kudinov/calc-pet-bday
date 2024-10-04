@@ -98,6 +98,8 @@ const displayBirthdays = (petName, petType, birthDate, year, addToTop) => {
   } else {
     result.append(block);
   }
+
+  handleButtonAnimations();
 };
 
 const handleFormSubmit = event => {
@@ -184,11 +186,16 @@ const loadFormDataFromUrl = () => {
   }
 };
 
-window.onload = loadFormDataFromUrl;
-document.querySelector('form').addEventListener('submit', handleFormSubmit);
+const handleButtonAnimations = () => {
+  const buttons = document.querySelectorAll('button');
+  for (const button of buttons) {
+    button.addEventListener('ontouchstart', () => button.classList.add('active'));
+    button.addEventListener('ontouchend', () => button.classList.remove('active'));
+  }
+};
 
-const buttons = document.querySelectorAll('button');
-for (const button of buttons) {
-  button.ontouchstart = () => button.classList.add('active');
-  button.ontouchend = () => button.classList.remove('active');
-}
+document.addEventListener('DOMContentLoaded', () => {
+  window.onload = loadFormDataFromUrl;
+  const form = document.querySelector('form');
+  form.addEventListener('submit', handleFormSubmit);
+});
