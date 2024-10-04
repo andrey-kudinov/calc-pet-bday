@@ -146,8 +146,9 @@ const handleNextYearButton = (petName, petType, birthDate, nextYear) => {
     const year = currentYear ? currentYear + 1 : nextYear;
     label.textContent = year + 1;
     
-    console.log({ blocks, currentYear, year, nextYear });
     displayBirthdays(petName, petType, birthDate, year);
+
+    button.scrollIntoView({ behavior: "smooth" });
   };
 };
 
