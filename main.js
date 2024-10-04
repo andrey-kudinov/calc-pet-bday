@@ -120,8 +120,12 @@ const handleFormSubmit = event => {
   params.set('petName', petName);
   params.set('petType', petType);
   params.set('birthDate', birthDate.getTime());
-  
-  window.history.pushState({ path: window.location.pathname + '?' + params.toString() }, '', window.location.pathname + '?' + params.toString());
+
+  window.history.pushState(
+    { path: window.location.pathname + '?' + params.toString() },
+    '',
+    window.location.pathname + '?' + params.toString()
+  );
 };
 
 const addNextYearButton = (petName, petType, birthDate, nextYear) => {
@@ -183,6 +187,8 @@ const loadFormDataFromUrl = () => {
 window.onload = loadFormDataFromUrl;
 document.querySelector('form').addEventListener('submit', handleFormSubmit);
 
-const button = document.querySelector('[type="submit"]');
-button.ontouchstart = () => button.classList.add('active');
-button.ontouchend = () => button.classList.remove('active');
+const buttons = document.querySelectorAll('button');
+for (const button of buttons) {
+  button.ontouchstart = () => button.classList.add('active');
+  button.ontouchend = () => button.classList.remove('active');
+}
