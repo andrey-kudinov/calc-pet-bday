@@ -6,6 +6,9 @@ body {
   justify-content: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
+  color: #1f2328;
+
+  --border-color: #b8b8b8;
 }
 
 .container {
@@ -21,6 +24,7 @@ body {
 .title {
   text-align: center;
   margin-bottom: 16px;
+  color: inherit;
 }
 
 .form-group {
@@ -33,9 +37,14 @@ body {
 input {
   padding: 4px 8px;
   flex: 1;
-  border: 1px solid #eee;
+  border: 1px solid var(--border-color);
   font-size: 1rem;
+  color: inherit;
   background: transparent;
+}
+
+fieldset {
+  border: 1px solid var(--border-color);
 }
 
 .radio-group {
@@ -43,6 +52,10 @@ input {
   display: flex;
   gap: 8px;
   align-items: center;
+}
+
+button {
+  color: inherit;
 }
 
 .submit-btn {
@@ -113,10 +126,10 @@ input {
   border-radius: 12px;
   background: linear-gradient(
     to left,
-    hsl(0, 0%, 48%) 0%,
-    hsl(0, 0%, 67%) 8%,
-    hwb(0 63% 37%) 92%,
-    hsl(0, 0%, 37%) 100%
+    hsl(110, 74%, 32%) 0%,
+    hsl(110, 76%, 41%) 8%,
+    hsl(110, 75%, 39%) 92%,
+    hsl(110, 76%, 29%) 100%
   );
 }
 
@@ -126,8 +139,8 @@ input {
   padding: 12px;
   border-radius: 12px;
   font-size: 1rem;
-  color: black;
-  background: hsl(0, 0%, 94%);
+  color: white;
+  background: hsl(110, 75%, 45%);
   will-change: transform;
   transform: translateY(-4px);
   transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
@@ -141,8 +154,8 @@ input {
 }
 
 .button:hover {
-  filter: brightness(103%);
-  -webkit-filter: brightness(103%);
+  filter: brightness(110%);
+  -webkit-filter: brightness(110%);
 }
 
 .button:hover .button-front {
@@ -152,8 +165,8 @@ input {
 
 @media (max-width: 768px) {
   .button {
-    filter: brightness(103%);
-    -webkit-filter: brightness(103%);
+    filter: brightness(110%);
+    -webkit-filter: brightness(110%);
   }
 
   .button .button-front {
