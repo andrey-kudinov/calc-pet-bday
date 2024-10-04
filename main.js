@@ -189,8 +189,8 @@ const loadFormDataFromUrl = () => {
 const handleButtonAnimations = () => {
   const buttons = document.querySelectorAll('button');
   for (const button of buttons) {
-    button.addEventListener('ontouchstart', () => button.classList.add('active'));
-    button.addEventListener('ontouchend', () => button.classList.remove('active'));
+    button.ontouchstart = () => button.classList.add('active'));
+    button.ontouchend = () => button.classList.remove('active'));
   }
 };
 
