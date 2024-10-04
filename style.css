@@ -31,7 +31,9 @@ body {
 }
 
 input {
+  padding: 4px 8px;
   flex: 1;
+  border: 1px solid #eee;
   font-size: 1rem;
   background: transparent;
 }
