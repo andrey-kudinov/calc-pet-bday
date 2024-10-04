@@ -62,6 +62,12 @@ button {
   margin: 20px 0;
 }
 
+.reset-btn {
+  margin-left: auto;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
 .add-year-btn {
   width: fit-content;
   margin-top: 16px;
@@ -70,6 +76,10 @@ button {
 
 .center {
   text-align: center;
+}
+
+.right {
+  text-align: right;
 }
 
 .m-0 {
