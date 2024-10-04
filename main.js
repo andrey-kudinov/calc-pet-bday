@@ -199,10 +199,23 @@ const handleButtonAnimations = () => {
   }
 };
 
+const handleReset = () => {
+  const button = document.querySelector("[type='reset']");
+  const next = document.querySelector('[data-next-button]');
+  const prev = document.querySelector('[data-prev-button]');
+
+  button.onclick = () => {
+    document.getElementById('result').innerHTML = '';
+    next.classList.add("hidden");
+    prev.classList.add("hidden");
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   window.onload = loadFormDataFromUrl;
 
   handleButtonAnimations();
+  handleReset();
 
   const form = document.querySelector('form');
   form.addEventListener('submit', handleFormSubmit);
