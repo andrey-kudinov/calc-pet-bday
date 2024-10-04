@@ -63,7 +63,9 @@ button {
 }
 
 .add-year-btn {
-  margin: 16px 0;
+  width: fit-content;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .center {
@@ -88,6 +90,10 @@ button {
 
 .mb-5 {
   margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
 }
 
 .button {

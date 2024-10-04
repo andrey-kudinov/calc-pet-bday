@@ -92,6 +92,7 @@ const displayBirthdays = (petName, petType, birthDate, year, addToTop) => {
     .join('');
 
   block.innerHTML = `${heading} ${birthdaysLayout ? `<ul class="mb-5 mt-4">${birthdaysLayout}</ul>` : noBirthdays}`;
+  block.dataset.year = year;
 
   if (addToTop) {
     result.prepend(block);
@@ -115,8 +116,8 @@ const handleFormSubmit = event => {
 
   displayBirthdays(petName, petType, birthDate, currentYear);
 
-  addPreviousYearButton(petName, petType, birthDate, currentYear - 1);
-  addNextYearButton(petName, petType, birthDate, currentYear + 1);
+  handlePreviousYearButton(petName, petType, birthDate, currentYear - 1);
+  handleNextYearButton(petName, petType, birthDate, currentYear + 1);
 
   const params = new URLSearchParams(window.location.search);
   params.set('petName', petName);
@@ -130,42 +131,47 @@ const handleFormSubmit = event => {
   );
 };
 
-const addNextYearButton = (petName, petType, birthDate, nextYear) => {
-  const button = document.createElement('button');
-  button.className = 'add-year-btn button';
-  button.innerHTML = `
-    <span class="button-shadow"></span>
-    <span class="button-edge"></span>
-    <span class="button-front text">
-      Add Birthdays for ${nextYear}
-    </span>
-  `;
-  button.addEventListener('click', e => {
-    e.currentTarget.remove();
-    displayBirthdays(petName, petType, birthDate, nextYear);
-    addNextYearButton(petName, petType, birthDate, nextYear + 1);
-  });
+const handleNextYearButton = (petName, petType, birthDate, nextYear) => {
+  const button = document.querySelector('[data-next-button]');
 
-  document.getElementById('result').append(button);
+  if (button.classList.contains('hidden')) {
+    const label = document.querySelector('[data-next-year]');
+    button.classList.remove('hidden');
+    label.textContent = nextYear;
+  }
+  
+  button.onclick = () => {
+    const label = document.querySelector('[data-next-year]');
+    const result = document.getElementById('result');
+    const blocks = result.querySelectorAll('[data-year]');
+    const currentYear = Number(blocks[blocks.length - 1].dataset.year);
+    const year = currentYear ? currentYear + 1 : nextYear;
+    label.textContent = year + 1;
+    
+    console.log({ blocks, currentYear, year, nextYear });
+    displayBirthdays(petName, petType, birthDate, year);
+  };
 };
 
-const addPreviousYearButton = (petName, petType, birthDate, prevYear) => {
-  const button = document.createElement('button');
-  button.className = 'add-year-btn button';
-  button.innerHTML = `
-    <span class="button-shadow"></span>
-    <span class="button-edge"></span>
-    <span class="button-front text">
-      Add Birthdays for ${prevYear}
-    </span>
-  `;
-  button.addEventListener('click', e => {
-    e.currentTarget.remove();
-    displayBirthdays(petName, petType, birthDate, prevYear, true);
-    addPreviousYearButton(petName, petType, birthDate, prevYear - 1);
-  });
+const handlePreviousYearButton = (petName, petType, birthDate, prevYear) => {
+  const button = document.querySelector('[data-prev-button]');
 
-  document.getElementById('result').prepend(button);
+  if (button.classList.contains('hidden')) {
+    const label = document.querySelector('[data-prev-year]');
+    button.classList.remove('hidden');
+    label.textContent = prevYear;
+  }
+
+  button.onclick = () => {
+    const label = document.querySelector('[data-prev-year]');
+    const result = document.getElementById('result');
+    const blocks = result.querySelectorAll('[data-year]');
+    const currentYear = Number(blocks[0].dataset.year);
+    const year = currentYear ? currentYear - 1 : prevYear;
+    label.textContent = year - 1;
+
+    displayBirthdays(petName, petType, birthDate, year, true);
+  };
 };
 
 const loadFormDataFromUrl = () => {
