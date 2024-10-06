@@ -137,7 +137,7 @@ const handleNextYearButton = (petName, petType, birthDate, nextYear) => {
     button.classList.remove('hidden');
     label.textContent = nextYear;
   }
-  
+
   button.onclick = () => {
     const label = document.querySelector('[data-next-year]');
     const result = document.getElementById('result');
@@ -145,10 +145,10 @@ const handleNextYearButton = (petName, petType, birthDate, nextYear) => {
     const currentYear = Number(blocks[blocks.length - 1].dataset.year);
     const year = currentYear ? currentYear + 1 : nextYear;
     label.textContent = year + 1;
-    
+
     displayBirthdays(petName, petType, birthDate, year);
 
-    button.scrollIntoView({ behavior: "smooth" });
+    button.scrollIntoView({ behavior: 'smooth' });
   };
 };
 
@@ -206,10 +206,10 @@ const handleReset = () => {
 
   button.onclick = () => {
     document.getElementById('result').innerHTML = '';
-    next.classList.add("hidden");
-    prev.classList.add("hidden");
-  }
-}
+    next.classList.add('hidden');
+    prev.classList.add('hidden');
+  };
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   window.onload = loadFormDataFromUrl;
