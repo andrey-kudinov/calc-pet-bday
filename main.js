@@ -208,14 +208,26 @@ const handleReset = () => {
     document.getElementById('result').innerHTML = '';
     next.classList.add('hidden');
     prev.classList.add('hidden');
+
+    const baseUrl = window.location.origin + window.location.pathname;
+    window.history.pushState({}, '', baseUrl);
+
+    setTimeout(() => setTodayDate());
   };
 };
+
+const setTodayDate = () => {
+  const dateInput = document.getElementById('birth-year')
+  const date = new Date();
+  dateInput.value = date.toISOString().split('T')[0];
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   window.onload = loadFormDataFromUrl;
 
   handleButtonAnimations();
   handleReset();
+  setTodayDate();
 
   const form = document.querySelector('form');
   form.addEventListener('submit', handleFormSubmit);
